@@ -1,21 +1,24 @@
+
+
+
 async function fetchProfileData() {
-    const username = document.getElementById('username').value.trim();
-    const loadingElement = document.getElementById('loading');
-    const profileContainer = document.getElementById('profile');
-    const profileDetails = document.getElementById('profile-details');
-    const avatar = document.getElementById('avatar');
-    const name = document.getElementById('name');
-    const bio = document.getElementById('bio');
-    const githubLink = document.getElementById('github-link');
-    const repos = document.getElementById('repos');
-    const followers = document.getElementById('followers');
-    const following = document.getElementById('following');
-    const Location = document.getElementById('Location');
+  const username = document.getElementById('username').value.trim();
+  const loadingElement = document.getElementById('loading');
+  const profileContainer = document.getElementById('profile');
+  const profileDetails = document.getElementById('profile-details');
+  const avatar = document.getElementById('avatar');
+  const name = document.getElementById('name');
+  const bio = document.getElementById('bio');
+  const githubLink = document.getElementById('github-link');
+  const repos = document.getElementById('repos');
+  const followers = document.getElementById('followers');
+  const following = document.getElementById('following');
+  const Location = document.getElementById('Location');
   
-    if (!username) {
-      alert('Please enter a GitHub username!');
-      return;
-    }
+    // if (!username) {
+    //   alert('Please enter a GitHub username!');
+    //   return;
+    // }
   
     loadingElement.style.display = 'block';
     profileContainer.style.display = 'none';
@@ -46,4 +49,10 @@ async function fetchProfileData() {
       loadingElement.style.display = 'none';
     }
   }
-  
+  document.querySelector('#username').addEventListener('keydown', (e)=>{
+         if(e.key==='Enter'){
+          fetchProfileData();
+         }
+  })
+
+  document.querySelector('button').addEventListener('click', fetchProfileData)
